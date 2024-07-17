@@ -15,6 +15,7 @@ import java.util.List;
  * Created on Saturday, July , 09, 2022
  */
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api/")
 public class CommentController {
   private CommentService commentService;

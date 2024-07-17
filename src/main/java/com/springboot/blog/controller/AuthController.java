@@ -19,10 +19,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Random;
@@ -32,6 +29,7 @@ import java.util.Random;
  * Created on Sunday, July , 17, 2022
  */
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api/auth")
 public class AuthController {
   @Autowired
@@ -101,7 +99,7 @@ public class AuthController {
     account.setBalance("0");
     account.setUser(user1);
     Account newAccount =accountRepository.save(account);
-
-    return new ResponseEntity<>("User Successfully registered ",HttpStatus.OK);
+    return new ResponseEntity<>(user,HttpStatus.OK);
+//    return new ResponseEntity<>("User Successfully registered ",HttpStatus.OK);
   }
 }
